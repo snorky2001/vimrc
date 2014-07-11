@@ -2,14 +2,14 @@
 set nocompatible
 
 " Display col/line
-set rule
+set ruler
 
 " Enable Syntax highlighting
 syntax on
 
 " Search configuration
 " Highlight
-set hlssearch
+set hlsearch
 " Incremental search
 set incsearch
 
