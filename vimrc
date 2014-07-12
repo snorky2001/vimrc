@@ -1,7 +1,37 @@
 " Default Vim config
 set nocompatible
 
-" Display col/line
+" Vundle installation
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Install taglist
+Plugin 'vim-scripts/taglist.vim'
+" Taglist config
+let Tlist_Ctags_Cmd = "/usr/bin/ctags"
+let Tlist_WinWidth = 50
+map <F4> :TlistToggle<cr>
+"map <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+
+" Install NERDTree
+Plugin 'scrooloose/nerdtree.git'
+map <F5> :NERDTreeToggle<CR>
+" Auto close if onlw NERDTree open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " 
+
+" Personnal config
+" Display col/line in bottom right
 set ruler
 
 " Enable Syntax highlighting
@@ -18,13 +48,27 @@ set shiftwidth=4
 set softtabstop=4
 
 " Adapt color to dark background
-set background=dark
+"set background=dark
+set background=light
+colorscheme evening
 
+" Backspace behaviour
+set backspace=indent,eol,start
 
 " Screen size
 if has('gui_running')
-  set guifont=Lucida_Console:h11
+"  set guifont=Lucida_Console:h11
+  set guifont=Monospace:h11
 endif
+
+" Enable mouse
+set mouse=a
+
+" Set the command/search history
+set history=100
+
+" File type management
+filetype plugin indent on
 
 if has("gui_running")
   " GUI is running or is about to start.
