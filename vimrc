@@ -63,7 +63,8 @@ set backspace=indent,eol,start
 " Screen size
 if has('gui_running')
     if has('win32')
-      set guifont=Lucida_Console:h11
+"      set guifont=Lucida_Console:h11
+      set guifont=Source_Code_Pro:h11:cANSI
     else
       set guifont=Monospace:h11
     endif
