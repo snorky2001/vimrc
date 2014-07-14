@@ -5,7 +5,12 @@ set nocompatible
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+if has('win32')
+    set rtp+=~/vimfiles/bundle/Vundle.vim
+    let path='~/vimfiles/bundle'
+else
+    set rtp+=~/.vim/bundle/Vundle.vim/
+endif
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -57,8 +62,11 @@ set backspace=indent,eol,start
 
 " Screen size
 if has('gui_running')
-"  set guifont=Lucida_Console:h11
-  set guifont=Monospace:h11
+    if has('win32')
+      set guifont=Lucida_Console:h11
+    else
+      set guifont=Monospace:h11
+    endif
 endif
 
 " Enable mouse
