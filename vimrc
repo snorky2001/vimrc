@@ -11,9 +11,12 @@ if has('win32')
 else
     set rtp+=~/.vim/bundle/Vundle.vim/
 endif
+if has('win32')
+		" alternatively, pass a path where Vundle should install plugins
+    call vundle#begin('~/vimfiles/bundle')
+else
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+endif
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
@@ -78,6 +81,9 @@ set history=100
 
 " File type management
 filetype plugin indent on
+
+au BufNewFile,BufRead *.p51 setf plm
+au BufNewFile,BufRead *.a51 setf asm
 
 if has("gui_running")
   " GUI is running or is about to start.
