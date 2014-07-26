@@ -31,9 +31,24 @@ map <F4> :TlistToggle<cr>
 
 " Install NERDTree
 Plugin 'scrooloose/nerdtree.git'
-map <F5> :NERDTreeToggle<CR>
+map <F2> :NERDTreeToggle<CR>
 " Auto close if onlw NERDTree open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Install Powerline : advanced status bar
+" Removed because require a font patch
+"Plugin 'Lokaltog/powerline'
+
+" Install fugitive to manage GIT
+Plugin 'tpope/vim-fugitive'
+
+" Install Syntastic to check syntax error
+Plugin 'scrooloose/syntastic.git'
+
+if has('unix')
+	" Install YouCompleteMe for autocompletion for several language
+	Plugin 'Valloric/YouCompleteMe'
+endif
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " 
