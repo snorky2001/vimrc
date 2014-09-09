@@ -65,6 +65,8 @@ syntax on
 set hlsearch
 " Incremental search
 set incsearch
+" Auto search case sensitive of case is used during search or \c required
+set smartcase
 
 " Indentation
 set shiftwidth=4
